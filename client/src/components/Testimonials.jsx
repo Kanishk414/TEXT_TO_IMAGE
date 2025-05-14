@@ -1,40 +1,75 @@
 import React from 'react'
 import { assets, testimonialsData } from '../assets/assets'
-import {motion} from 'framer-motion'
+import { motion } from 'framer-motion'
 
 const Testimonials = () => {
   return (
-    <motion.div
-    initial={{opacity:0.2 , y:100}}
-    transition={{duration:1}}
-    whileInView={{opacity:1,y:0}}
-    viewport={{once:true}}
-    
-    className='flex flex-col items-center justify-center my-20 py-12'>
+    <div className="py-20 bg-white">
+      <div className="container mx-auto px-4">
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7 }}
+          viewport={{ once: true }}
+          className="text-center max-w-2xl mx-auto mb-16"
+        >
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">What Our Users Say</h2>
+          <p className="text-lg text-gray-600">Hear from people who have transformed their ideas into stunning visuals</p>
+        </motion.div>
 
-    <h1 className='text-3xl sm:text-4xl font-semibold mb-2 '>Customer testimonials</h1>
-    <p className='text-gray-500 mb-12'>What Our Users Are Saying</p>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          {testimonialsData.map((testimonial, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              viewport={{ once: true }}
+              className="bg-white rounded-2xl shadow-md border border-gray-100 p-8 hover:shadow-xl transition-all duration-500"
+            >
+              <div className="flex items-center gap-3 mb-6">
+                <img 
+                  src={testimonial.image} 
+                  alt={testimonial.name} 
+                  className="w-14 h-14 rounded-full object-cover border-2 border-indigo-100"
+                />
+                <div>
+                  <h3 className="text-lg font-semibold text-gray-900">{testimonial.name}</h3>
+                  <p className="text-gray-500 text-sm">{testimonial.role}</p>
+                </div>
+              </div>
 
-    <div className='flex flex-wrap gap-6'>
-        {testimonialsData.map((testimonial , index)=>(
-            <div key={index} className='bg-white/20 p-12 rounded-lg shadow-md border w-80 m-auto cursor-pointer hover:scale-[1.02] transition-all'>
-                <div className='flex flex-col items-center'>
-                    <img src={testimonial.image} alt=""  className='rounded-full w-14'/>
+              <div className="mb-6">
+                <div className="flex mb-4">
+                  {[...Array(5)].map((_, i) => (
+                    <svg 
+                      key={i} 
+                      className={`w-5 h-5 ${i < testimonial.stars ? 'text-yellow-400' : 'text-gray-300'}`} 
+                      fill="currentColor" 
+                      viewBox="0 0 20 20"
+                    >
+                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                    </svg>
+                  ))}
+                </div>
+                <p className="text-gray-700 italic">"{testimonial.text}"</p>
+              </div>
 
-                    <h2 className='text-xl font-semibold mt-3'>{testimonial.name}</h2>
-                    <p className='text-gray-500 mb-4'>{testimonial.role}</p>
-                    <div className='flex mb-4'>
-                        {Array(testimonial.stars).fill().map((item,index)=>(
-                            <img key={index} src={assets.rating_star}alt="" />
-                        ))}
-                    </div>
-                    <p className='text-center text-sm text-gray-600'>{testimonial.text}</p>
-                </div>    
-            </div>
-        ))}
+              <div className="pt-4 border-t border-gray-100">
+                <div className="flex items-center gap-2">
+                  <div className="bg-indigo-100 text-indigo-600 text-xs font-medium px-3 py-1 rounded-full">
+                    AI Image Creator
+                  </div>
+                  <div className="bg-blue-100 text-blue-600 text-xs font-medium px-3 py-1 rounded-full">
+                    Verified User
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
     </div>
-      
-    </motion.div>
   )
 }
 
