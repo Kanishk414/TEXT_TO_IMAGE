@@ -1,3 +1,4 @@
+
 # Imaginexis 🎨✨
 
 A full-stack AI-powered **Text-to-Image Generator** built using modern web technologies, integrated with [**ClipDrop API**](https://clipdrop.co/apis) for image generation and **Razorpay** for secure payments.
@@ -61,7 +62,7 @@ Imaginexis/
 
 ```bash
 git clone https://github.com/Kanishk414/TEXT_TO_IMAGE
-cd imaginexis
+cd TEXT_TO_IMAGE
 ```
 
 ---
@@ -78,7 +79,7 @@ npm install
 #### Server
 
 ```bash
-cd ../server
+cd server
 npm install
 ```
 
@@ -172,12 +173,22 @@ Image generation is powered by the [ClipDrop API](https://clipdrop.co/apis). Req
 npm run build
 ```
 
-### Server
+### Server (Render Deployment)
 
-Ensure `.env` is correctly configured and deploy `server/` to Render or similar platforms.
+- **Build Command:**  
+  ```bash
+  npm install
+  ```
+
+- **Start Command:**  
+  ```bash
+  npm run start
+  ```
+
+Make sure your `.env` variables are correctly added in Render's environment settings.
 
 ---
 
 ## 👨‍💻 Contributor
 
-Built with ❤️ by [Kanishk Pardikar](https://github.com/kanishk414) 🚀
+Built with ❤️ by [Kanishk Pardikar](https://github.com/kanishk414)
