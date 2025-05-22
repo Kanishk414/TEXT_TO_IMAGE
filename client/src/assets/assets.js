@@ -96,7 +96,7 @@ export const plans = [
     },
     {
       id: 'Business',
-      price: 1000,
+      price: 1500,
       credits: 300,
       desc: 'Best for enterprise use.'
     },
